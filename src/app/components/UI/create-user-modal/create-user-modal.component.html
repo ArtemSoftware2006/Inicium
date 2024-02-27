@@ -1,0 +1,27 @@
+<div class="modal" *ngIf="display" (click)="onBackgroundClick()">
+    <div class="modal-content">
+      <h2>Создать пользователя</h2>
+      <form 
+        class="modal-form"
+        [formGroup]="userForm" 
+        (ngSubmit)="onSubmit()"
+      >
+        <label for="name">Имя</label>
+        <input id="name" type="text" formControlName="name">
+  
+        <label for="surname">Фамилия</label>
+        <input id="surname" type="text" formControlName="surname">
+  
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email">
+  
+        <label for="phone">Телефон</label>
+        <input id="phone" type="tel" formControlName="phone">
+
+        <div class="modal-button">
+          <app-button type="button" (click)="onCancel()">Отменить</app-button>
+          <app-button type="submit">Создать</app-button>
+        </div>
+      </form>
+    </div>
+  </div>
