@@ -1,0 +1,31 @@
+$table-color: #FFFFFF;
+
+.table {
+    &__container {
+        display: block;
+        padding: 30px;
+        background-color: $table-color;
+        border-radius: 20px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        height: 40px;
+    }
+
+    &__columns {
+        th {
+            height: 47px;
+            min-width: 200px;
+            max-width: 200px;
+            text-align: left;
+            font-weight: bold;
+        }
+        & > *:first-child {
+            min-width: 24px;
+            max-width: 24px;
+        }
+    }
+}

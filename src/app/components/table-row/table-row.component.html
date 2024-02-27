@@ -1,0 +1,21 @@
+<tr>
+    <td>
+        <input 
+            type="checkbox" 
+            [value]="user.selected"
+            (change)="onSelectChange($event.target)"
+        >
+    </td>
+    <td>
+        {{user.name}}
+    </td>
+    <td>
+        {{user.surname}}
+    </td>
+    <td>
+        {{user.email}}
+    </td>
+    <td>
+        {{user.phone}}
+    </td>
+</tr>

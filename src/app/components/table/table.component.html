@@ -1,0 +1,38 @@
+<app-create-user-modal 
+    (close)="onCreateUserModalClose()"
+    [display]="isDisplayCreateUserModal"
+></app-create-user-modal>
+
+<app-delete-user-modal
+    (close)="onDeleteUsersModalClose()"
+    [display]="isDisplayDeleteUsersModal"
+    [rowsCount]="countDeleteRows"
+></app-delete-user-modal>
+
+<table class="table__container">
+
+    <header class="table__header">
+        <app-icon-button (click)="addUserClick()">
+            <img src="assets/plus.svg" alt="Add">
+        </app-icon-button>
+        <app-icon-button (click)="deleteUsersClick()">
+            <img src="assets/delete.svg" alt="Del">
+        </app-icon-button>
+    </header>
+
+    <tr class="table__columns">
+        <th>
+            <input type="checkbox" [indeterminate]="isIndeterminate()">
+        </th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    @for (user of users; track $index) {
+        <app-table-row 
+            [user]="user"
+            (selectChange)="onSelectChange()"
+        ></app-table-row>
+    }
+</table>
