@@ -1,0 +1,14 @@
+$icon-button-color-hover: #E2EEFF;
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $icon-button-color-hover;
+    }
+}
