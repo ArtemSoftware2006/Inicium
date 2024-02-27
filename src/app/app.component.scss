@@ -1,0 +1,16 @@
+$main-color: #E9F3FF;
+$title-color: #2F7FD5;
+.app {
+    &__wapper {
+        min-height: 100vh;
+        background-color: $main-color;
+    }
+
+    &__content {
+        min-height: 100vh;
+        padding: 16px;
+    }
+    &__title {
+        color: $title-color;
+    }
+}
