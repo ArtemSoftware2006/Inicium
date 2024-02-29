@@ -1,0 +1,94 @@
+<app-modal
+  textButton="Создать"
+  title="Создать пользователя"
+  [display]="display"
+  [disableSubmit]="!userForm.valid"
+  (close)="onCancel()"
+  (submit)="onSubmit()"
+>
+  <form 
+    class="modal-form"
+    [formGroup]="userForm" 
+    (ngSubmit)="onSubmit()"
+  >
+    <app-input
+      formControlName="name"
+      type="text"
+      label="Имя"
+      placeholder="Имя"
+      name="name"
+      id="name"
+      [errors]="(userForm.controls.name.dirty || userForm.controls.name.touched) 
+        ? userForm.controls.name.errors : null"
+    >
+      @if (userForm.controls.name.errors?.required 
+        && (userForm.controls.name.dirty || userForm.controls.name.touched)) {
+        <span class="error">Имя не может быть пустым</span>
+      }
+      @else if (userForm.controls.name.errors?.minlength  
+        && (userForm.controls.name.dirty || userForm.controls.name.touched)) {
+        <span class="error">Имя должно содержать минимум 2 символа</span>
+      }
+    </app-input>
+
+    <app-input
+      formControlName="surname"
+      type="text"
+      label="Фамилия"
+      placeholder="Фамилия"
+      name="surname"
+      id="surname"
+      [errors]="(userForm.controls.surname.dirty || userForm.controls.surname.touched) 
+        ? userForm.controls.surname.errors : null"
+    >
+      @if (userForm.controls.surname.errors?.required 
+        && (userForm.controls.surname.dirty || userForm.controls.surname.touched)) {
+        <span class="error">Фамилия не может быть пустой</span>
+      }
+      @else if (userForm.controls.surname.errors?.minlength 
+        && (userForm.controls.surname.dirty || userForm.controls.surname.touched)) {
+        <span class="error">Фамилия должна содержать минимум 2 символа</span>
+      }
+    </app-input>
+
+    <app-input
+      formControlName="email"
+      type="email"
+      label="Почта"
+      placeholder="Почта"
+      name="email"
+      id="email"
+      [errors]="(userForm.controls.email.dirty || userForm.controls.email.touched) 
+        ? userForm.controls.email.errors : null"
+    >
+      @if (userForm.controls.email.errors?.required 
+        && (userForm.controls.email.dirty || userForm.controls.email.touched)) {
+        <span class="error">Почта не может быть пустой</span>
+      }
+      @else if (userForm.controls.email.errors?.email 
+        && (userForm.controls.email.dirty || userForm.controls.email.touched)) {
+        <span class="error">Почта не соответствует формату</span>
+      }
+    </app-input>
+
+    <app-input
+      formControlName="phone"
+      type="tel"
+      label="Телефон"
+      placeholder="Телефон"
+      name="phone"
+      id="phone"
+      [errors]="(userForm.controls.phone.dirty || userForm.controls.phone.touched) 
+        ? userForm.controls.phone.errors : null"
+    >
+      @if (userForm.controls.phone.errors?.required 
+        && (userForm.controls.phone.dirty || userForm.controls.phone.touched)) {
+        <span class="error">Телефон не может быть пустым</span>
+      }
+      @else if (userForm.controls.phone.errors?.invalidPhone 
+        && (userForm.controls.phone.dirty || userForm.controls.phone.touched)) {
+        <span class="error">Телефон не соответствует формату</span>
+      }
+    </app-input>
+  </form>
+</app-modal>

@@ -1,0 +1,11 @@
+<app-modal
+  title="Удаление строк"
+  textButton="Удалить"
+  [display]="display"
+  (close)="onCancel()"
+  (submit)="onSubmit()"
+>
+  <div>
+    Удалить выбранные строки({{countRows}})?
+  </div>
+</app-modal>

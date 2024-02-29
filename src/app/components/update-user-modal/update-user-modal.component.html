@@ -1,0 +1,94 @@
+<app-modal
+    title="Редактирование"
+    textButton="Сохранить"
+    [display]="display"
+    (close)="onCancel()"
+    (submit)="onSubmit()"
+    [disableSubmit]="!userUpdateForm.valid"
+>
+    <form 
+        class="modal-form"
+        [formGroup]="userUpdateForm" 
+        (ngSubmit)="onSubmit()"
+    >
+        <app-input
+        formControlName="name"
+        type="text"
+        label="Имя"
+        placeholder="Имя"
+        name="name"
+        id="name"
+        [errors]="(userUpdateForm.controls.name.dirty || userUpdateForm.controls.name.touched) 
+            ? userUpdateForm.controls.name.errors : null"
+        >
+            @if (userUpdateForm.controls.name.errors?.required 
+                && (userUpdateForm.controls.name.dirty || userUpdateForm.controls.name.touched)) {
+                <span class="error">Имя не может быть пустым</span>
+            }
+            @else if (userUpdateForm.controls.name.errors?.minlength  
+                && (userUpdateForm.controls.name.dirty || userUpdateForm.controls.name.touched)) {
+                <span class="error">Имя должно содержать минимум 2 символа</span>
+            }
+        </app-input>
+
+        <app-input
+        formControlName="surname"
+        type="text"
+        label="Фамилия"
+        placeholder="Фамилия"
+        name="surname"
+        id="surname"
+        [errors]="(userUpdateForm.controls.surname.dirty || userUpdateForm.controls.surname.touched) 
+            ? userUpdateForm.controls.surname.errors : null"
+        >
+            @if (userUpdateForm.controls.surname.errors?.required 
+                && (userUpdateForm.controls.surname.dirty || userUpdateForm.controls.surname.touched)) {
+                <span class="error">Фамилия не может быть пустой</span>
+            }
+            @else if (userUpdateForm.controls.surname.errors?.minlength 
+                && (userUpdateForm.controls.surname.dirty || userUpdateForm.controls.surname.touched)) {
+                <span class="error">Фамилия должна содержать минимум 2 символа</span>
+            }
+        </app-input>
+
+        <app-input
+        formControlName="email"
+        type="email"
+        label="Почта"
+        placeholder="Почта"
+        name="email"
+        id="email"
+        [errors]="(userUpdateForm.controls.email.dirty || userUpdateForm.controls.email.touched) 
+            ? userUpdateForm.controls.email.errors : null"
+        >
+            @if (userUpdateForm.controls.email.errors?.required 
+                && (userUpdateForm.controls.email.dirty || userUpdateForm.controls.email.touched)) {
+                <span class="error">Почта не может быть пустой</span>
+            }
+            @else if (userUpdateForm.controls.email.errors?.email 
+                && (userUpdateForm.controls.email.dirty || userUpdateForm.controls.email.touched)) {
+                <span class="error">Почта не соответствует формату</span>
+            }
+        </app-input>
+
+        <app-input
+            formControlName="phone"
+            type="tel"
+            label="Телефон"
+            placeholder="Телефон"
+            name="phone"
+            id="phone"
+            [errors]="(userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched) 
+                ? userUpdateForm.controls.phone.errors : null"
+        >
+            @if (userUpdateForm.controls.phone.errors?.required 
+                && (userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched)) {
+                <span class="error">Телефон не может быть пустым</span>
+            }
+            @else if (userUpdateForm.controls.phone.errors?.invalidPhone 
+                && (userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched)) {
+                <span class="error">Телефон не соответствует формату</span>
+            }
+        </app-input>
+    </form>
+</app-modal>

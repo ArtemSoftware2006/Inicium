@@ -1,0 +1,11 @@
+.modal-form {
+    & > input {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+    display: flex;
+    flex-direction: column;
+}
