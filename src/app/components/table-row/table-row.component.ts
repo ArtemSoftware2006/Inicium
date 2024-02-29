@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { User } from '../../entities/user';
 
 @Component({
@@ -16,6 +16,7 @@ export class TableRowComponent {
     email : '',
     selected : false
   }
+  @Output() updateUser = new EventEmitter<User>();
   @Output() selectChange = new EventEmitter();
 
   onSelectChange(event: EventTarget|null) {
@@ -24,5 +25,8 @@ export class TableRowComponent {
       this.user.selected = target.checked;
       this.selectChange.emit();
     }
+  }
+  onRowClick() {
+    this.updateUser.emit(this.user);
   }
 }

@@ -1,4 +1,6 @@
-<tr>
+<tr 
+    class="table-row"
+>
     <td>
         <input 
             type="checkbox" 
@@ -6,7 +8,9 @@
             (change)="onSelectChange($event.target)"
         >
     </td>
-    <td>
+    <td
+        (click)="onRowClick()"
+    >
         {{user.name}}
     </td>
     <td>

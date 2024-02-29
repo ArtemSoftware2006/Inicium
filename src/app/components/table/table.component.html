@@ -1,38 +1,103 @@
 <app-create-user-modal 
     (close)="onCreateUserModalClose()"
     [display]="isDisplayCreateUserModal"
+    (createUser)="onCreateUserModalSubmit($event)"
 ></app-create-user-modal>
-
 <app-delete-user-modal
-    (close)="onDeleteUsersModalClose()"
+    (close)="onDeleteUsersModalClose($event)"
     [display]="isDisplayDeleteUsersModal"
-    [rowsCount]="countDeleteRows"
+    [countRows]="countDeleteRows"
 ></app-delete-user-modal>
+<app-update-user-modal
+    (close)="onUpdateUserModalClose()"
+    [display]="isDisplayUpdateUsersModal"
+    [user]="selectedUser"
+    (updateUser)="onUpdateUserModalSubmit($event)"
+></app-update-user-modal>
 
 <table class="table__container">
 
     <header class="table__header">
-        <app-icon-button (click)="addUserClick()">
-            <img src="assets/plus.svg" alt="Add">
-        </app-icon-button>
-        <app-icon-button (click)="deleteUsersClick()">
-            <img src="assets/delete.svg" alt="Del">
-        </app-icon-button>
+        <div>
+            <app-icon-button 
+                (click)="addUserClick()"
+            >
+                <img src="assets/plus.svg" alt="Add">
+            </app-icon-button>
+            <app-icon-button 
+                (click)="deleteUsersClick()"
+            >
+                <img src="assets/delete.svg" alt="Del">
+            </app-icon-button>
+        </div>
+        <div>
+            <app-icon-button
+                (click)="saveUsers()"
+            >
+                <img src="assets/save.svg" alt="save">
+            </app-icon-button>
+            <app-icon-button
+                (click)="deleteStoredUsers()"
+            >
+                <img src="assets/delete-stored-users.svg" alt="del-stored-users">
+            </app-icon-button>
+        </div>
     </header>
 
     <tr class="table__columns">
         <th>
-            <input type="checkbox" [indeterminate]="isIndeterminate()">
+            <input 
+                type="checkbox" 
+                [indeterminate]="isIndeterminate()"
+                (change)="checkAllRows($any($event.target).checked)"
+            >
         </th>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Email</th>
-        <th>Phone</th>
+        <th 
+            (click)="sortTable('name')"
+        >
+            <span>Имя</span>
+            <img 
+                src="assets/sort.svg" 
+                alt="Sort"
+                class="table__columns-sort-icon"
+            >
+        </th>
+        <th 
+            (click)="sortTable('surname')"
+        >
+            <span>Фамилия</span>
+            <img 
+                src="assets/sort.svg" 
+                alt="Sort"
+                class="table__columns-sort-icon"
+            >
+        </th>
+        <th 
+            (click)="sortTable('email')"
+        >
+            <span>Email</span>
+            <img 
+                src="assets/sort.svg" 
+                alt="Sort"
+                class="table__columns-sort-icon"
+            >
+        </th>
+        <th 
+            (click)="sortTable('phone')"
+        >
+            <span>Телефон</span>
+            <img 
+                src="assets/sort.svg" 
+                alt="Sort"
+                class="table__columns-sort-icon"
+            >
+        </th>
     </tr>
-    @for (user of users; track $index) {
+    @for (user of users; track user) {
         <app-table-row 
             [user]="user"
             (selectChange)="onSelectChange()"
+            (updateUser)="onRowClick($event)"
         ></app-table-row>
     }
 </table>

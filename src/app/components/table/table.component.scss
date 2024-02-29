@@ -8,15 +8,31 @@ $table-color: #FFFFFF;
         border-radius: 20px;
     }
 
+    td {
+        border-bottom: 1px solid #000;
+    }
+
     &__header {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         gap: 10px;
         height: 40px;
     }
 
     &__columns {
+        padding-left: 7px;
+        display: flex; 
+        border-bottom: 1px solid #BDBDBD;
+
+        &-sort-icon {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
         th {
+            display: flex;
+            align-items: center;
             height: 47px;
             min-width: 200px;
             max-width: 200px;

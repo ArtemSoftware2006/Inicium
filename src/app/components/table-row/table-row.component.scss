@@ -1,11 +1,45 @@
-td:first-child {
-    min-width: 24px;
-    max-width: 24px;
+$row-color-hover: #8cacfd;
+$row-background-hover: #cedcff;
+
+:host {
+    display: block;
+    padding-left: 8px;
+    border-bottom: 1px solid #BDBDBD;
+
+    &:hover {
+        background-color: $row-background-hover;
+    }
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 td {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    
     height: 47px;
     min-width: 200px;
     max-width: 200px;
     text-align: left;
+
+    &:first-child {
+        min-width: 24px;
+        max-width: 24px;
+    
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+    }
+
+    &:nth-child(2):hover {
+        color: $row-color-hover;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
