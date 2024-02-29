@@ -1,0 +1,84 @@
+$color-default: #BBC5C9;
+$color-focus: #2F7FD5;
+$color-filled: #505662;
+$color-error: #FF0000;
+$color-text-default: #BBC5C9;
+
+.app-input {
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+
+        &.active {
+            & input {
+                border: 1px solid $color-focus;
+            }
+            & label {
+                visibility: visible;
+                color: $color-focus;
+            }
+        }
+    
+        &.filled {
+            & input {
+                border: 1px solid $color-filled;                
+            }
+            & label {
+                color: $color-filled;
+                visibility: visible;
+            }
+        }
+    
+        &.error {
+            & input {
+                border: 1px solid $color-error;                
+            }
+            & label {
+                color: $color-error;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__label {
+        color: $color-text-default;
+        position: absolute;
+        display: inline-block;
+        align-self: flex-start;
+        top: -10px;
+        left: 8px;
+        visibility: hidden;
+        background: white; 
+        padding: 0 5px; 
+        letter-spacing: 0.4px;
+    }
+
+    &__input {
+        width: 300px;
+        padding: 12px 16px 12px 16px;
+        border-radius: 4px;
+        border: 2px solid $color-default;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__error
+    {
+        font-size: 12px;
+        min-height: 13px;
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+
+        &::ng-deep * {
+            margin-left: 1rem;
+            color: red;
+        }
+
+    }
+}

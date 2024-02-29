@@ -1,0 +1,25 @@
+<div 
+    class="app-input__wrapper"
+    [ngClass]="{'error': errors, 'filled': isFilled, 'active': isActive }"
+>
+    <label class="app-input__label" for="{{id}}">{{label}}</label>
+
+    <input
+        class="app-input__input"
+        [type]="type"
+        [placeholder]="placeholder"
+        [id]="id"
+        [name]="name"   
+        [value]="value"
+        (input)="onInput($any($event.target).value)"
+        (focus)="onFocus()"
+        (blur)="onTouched()"
+        (change)="onChange($any($event.target).value)"
+    />
+
+    <div class="app-input__error">
+        <ng-content #errors>
+        </ng-content>
+    </div>
+    
+</div>

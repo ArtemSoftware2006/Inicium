@@ -1,7 +1,52 @@
+$button-color-primary: #2A85FF;
+$button-color-primary-pressed: #194EB6;
+$button-color-primary-hover: #3C7CF8;
+$button-color-disabled: #D8DEE9;
+$button-color-secondary: #FFFFFF;
+$button-text-secondary: #2F67D5;
+$button-color-secondary-hover: #3C7CF8;
+$button-color-secondary-pressed: #194EB6;
+$button-text-color: #FFFFFF;
+
 .app-button {
     padding: 10px 16px;
     border-radius: 22px;
     min-height: 44px;
     min-width: 100px;
     border: none;
+    background-color: none;
+
+    &_primary {
+        background-color: $button-color-primary;
+        color: $button-text-color;
+
+        &:hover {
+            background-color: $button-color-primary-hover;
+        }
+
+        &:active {
+            background-color: $button-color-primary-pressed;
+        }
+    }
+
+    &_secondary {
+        background-color: $button-color-secondary;
+        color: $button-text-secondary;
+
+        &:hover {
+            background-color: rgba($button-color-secondary-hover,   0.1);
+        }
+
+        &:active {
+            background-color: rgba($button-color-secondary-pressed, 0.2);
+        }
+    }
+    &_disabled {
+        cursor: not-allowed;
+        background-color: $button-color-disabled;
+
+        &:hover {
+            background-color: $button-color-disabled;
+        }
+    }
 }

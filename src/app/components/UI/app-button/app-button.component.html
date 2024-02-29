@@ -1,3 +1,9 @@
-<button class="app-button">
+<button 
+    class="app-button"
+    [ngClass]="{
+        'app-button_primary': mode === 'primary',
+        'app-button_secondary': mode === 'secondary',
+        'app-button_disabled': disable === true
+        }">
     <ng-content></ng-content>
 </button>
