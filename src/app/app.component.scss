@@ -2,6 +2,9 @@ $main-color: #E9F3FF;
 $title-color: #2F7FD5;
 .app {
     &__wapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         min-height: 100vh;
         background-color: $main-color;
     }
@@ -11,6 +14,9 @@ $title-color: #2F7FD5;
         padding: 16px;
     }
     &__title {
+        display: flex;
+        align-items: center;
+        height: 91px;
         color: $title-color;
     }
 }
