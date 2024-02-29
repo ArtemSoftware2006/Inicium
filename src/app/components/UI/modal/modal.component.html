@@ -1,0 +1,23 @@
+<div class="modal" *ngIf="display" (click)="onBackgroundClick()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2>{{title}}</h2>
+        <ng-content></ng-content>
+        <div class="modal-button">
+            <app-button 
+                type="button" 
+                (click)="onCancel()"
+                mode="secondary"
+            >
+                Отменить
+            </app-button>
+            <app-button 
+                type="submit"
+                [disable]="disableSubmit"
+                (click)="onSubmit()"
+                mode="primary"
+            >
+                {{textButton}}
+            </app-button>
+        </div>
+    </div>
+</div>
