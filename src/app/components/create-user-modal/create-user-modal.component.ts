@@ -38,7 +38,6 @@ export class CreateUserModalComponent {
         phone: this.userForm.value.phone!,
         selected: false
       };
-      console.log(user);
       this.createUser.emit(user);
     }
   }

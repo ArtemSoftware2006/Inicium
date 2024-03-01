@@ -72,9 +72,7 @@ export class TableComponent {
     this.isDisplayDeleteUsersModal = false;
   }
 
-  onSelectChange() {
-    
-  }
+  onSelectChange() { }
 
   isIndeterminate() {
     const selectedUsers = this.users.filter(user => user.selected);
@@ -82,8 +80,8 @@ export class TableComponent {
   }
 
   checkAllRows(value : boolean) {
-    this.users = this.users.map(user => {
-      return {...user, selected: true};
+    this.users = this.users.slice().map(user => {
+      return {...user, selected: value};
     });
   }
 
