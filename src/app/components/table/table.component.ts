@@ -42,12 +42,14 @@ export class TableComponent {
 
   sortTable(key: keyof User) {
     this.users.sort((a, b) => {
-      if (a[key] < b[key]) {
-        return -1;
-      }
-      if (a[key] > b[key]) {
-        return 1;
-      }
+      if (a[key] && b[key]) {
+        if (a[key]! < b[key]!) {
+          return -1;
+        }
+        if (a[key]! > b[key]!) {
+          return 1;
+        } 
+      }  
       return 0;
     });
   }

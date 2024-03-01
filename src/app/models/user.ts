@@ -2,6 +2,6 @@ export interface User {
     name : string,
     surname : string,
     email : string,
-    phone : string,
+    phone? : string,
     selected : boolean
 }
