@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { User } from '../../entities/user';
+import { User } from '../../models/user';
 import { russianPhoneNumberValidator } from '../../validators/phoneValidators';
 import { AppButtonComponent } from '../UI/app-button/app-button.component';
 import { AppInputComponent } from '../UI/app-input/app-input.component';

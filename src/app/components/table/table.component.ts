@@ -1,4 +1,4 @@
-import { User } from './../../entities/user';
+import { User } from '../../models/user';
 import { Component } from '@angular/core';
 import { IconButtonComponent } from '../UI/icon-button/icon-button.component';
 import { UserService } from '../../services/user/user.service';

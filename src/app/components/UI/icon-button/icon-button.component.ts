@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { User } from '../../../entities/user';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-icon-button',

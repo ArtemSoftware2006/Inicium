@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ModalComponent } from '../UI/modal/modal.component';
-import { User } from '../../entities/user';
+import { User } from '../../models/user';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { russianPhoneNumberValidator } from '../../validators/phoneValidators';
 import { AppInputComponent } from '../UI/app-input/app-input.component';

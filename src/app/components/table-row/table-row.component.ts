@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { User } from '../../entities/user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-table-row',
