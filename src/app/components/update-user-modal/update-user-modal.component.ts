@@ -29,7 +29,7 @@ export class UpdateUserModalComponent implements OnChanges {
       name: [this.user?.name, [Validators.required, Validators.minLength(2)]],
       surname: [this.user?.surname, [Validators.required, Validators.minLength(2)]],
       email: [this.user?.email, [Validators.required, Validators.email]],
-      phone: [this.user?.phone, [Validators.required, russianPhoneNumberValidator()]],
+      phone: [this.user?.phone, [russianPhoneNumberValidator()]],
     });
   }
 

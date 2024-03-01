@@ -100,6 +100,7 @@ export class TableComponent {
     const changedUserIndex = this.users.findIndex(usr => usr == this.selectedUser);
     if (changedUserIndex !== -1) {
       this.users[changedUserIndex] = user;
+      this.isDisplayUpdateUsersModal = false;
     }
   }
   onRowClick(user: User) {

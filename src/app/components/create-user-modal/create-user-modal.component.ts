@@ -24,7 +24,7 @@ export class CreateUserModalComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     surname: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, russianPhoneNumberValidator()]],
+    phone: ['', [russianPhoneNumberValidator()]],
   });
 
   constructor(private fb: FormBuilder) {}

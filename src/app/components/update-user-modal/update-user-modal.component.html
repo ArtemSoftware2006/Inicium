@@ -81,11 +81,7 @@
             [errors]="(userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched) 
                 ? userUpdateForm.controls.phone.errors : null"
         >
-            @if (userUpdateForm.controls.phone.errors?.required 
-                && (userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched)) {
-                <span class="error">Телефон не может быть пустым</span>
-            }
-            @else if (userUpdateForm.controls.phone.errors?.invalidPhone 
+            @if (userUpdateForm.controls.phone.errors?.invalidPhone 
                 && (userUpdateForm.controls.phone.dirty || userUpdateForm.controls.phone.touched)) {
                 <span class="error">Телефон не соответствует формату</span>
             }
