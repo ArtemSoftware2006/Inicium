@@ -74,6 +74,11 @@ export class TableComponent {
     this.isDisplayDeleteUsersModal = false;
   }
 
+  deleteUsersClick() {
+    this.countDeleteRows = this.users.filter(user => user.selected).length;
+    this.isDisplayDeleteUsersModal = true;
+  }
+
   onSelectChange() { }
 
   isIndeterminate() {
@@ -85,12 +90,6 @@ export class TableComponent {
     this.users = this.users.slice().map(user => {
       return {...user, selected: value};
     });
-  }
-
-
-  deleteUsersClick() {
-    this.countDeleteRows = this.users.filter(user => user.selected).length;
-    this.isDisplayDeleteUsersModal = true;
   }
 
   onUpdateUserModalClose() {
